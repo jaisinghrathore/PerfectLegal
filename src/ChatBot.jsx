@@ -3,6 +3,14 @@ import ChatBubbleIcon from '@material-ui/icons/ChatBubble';
 import ClearIcon from '@material-ui/icons/Clear';
 import axios from 'axios';
 import {useHistory} from 'react-router-dom';
+import Snackbar from '@material-ui/core/Snackbar';
+import MuiAlert from '@material-ui/lab/Alert';
+
+function Alert(props) {
+    return <MuiAlert elevation={6} variant="filled" {...props} />;
+  }
+
+
 export default function ChatBot() {
     
     const history=useHistory();
@@ -14,7 +22,18 @@ export default function ChatBot() {
         email:"",
         message:""
     })
+    const [open, setOpen] = React.useState(false);
 
+    const handleClose = (event, reason) => {
+        if (reason === 'clickaway') {
+          return;
+        }
+    
+        setOpen(false);
+      };
+
+      
+      
     const openn=()=>{
        upda11("block")
     }
@@ -42,7 +61,8 @@ export default function ChatBot() {
                 if(response.data.name==="ValidationError"){
         alert("Enter valid Options");
     }else{
-        history.push("./success","YOUR QUERIES HAS BEEN RECORDED")
+        setOpen(true);
+
     }
 })
 
@@ -57,7 +77,12 @@ axios.post('https://formspree.io/f/xzbkldqo',register).then((response)=>{})
     return (
         <div>
 
-
+<Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
+        <Alert onClose={handleClose} severity="success">
+        <h5 style={{marginTop:"6px"}}>YOUR QUERIES HAS BEEN RECORDED.</h5>
+        </Alert>
+      </Snackbar>
+      
             <div style={{width:"45rem", height:"45rem",backgroundColor:"rgb(205, 186, 109)",position:"fixed",left:"20px",bottom:"65px",cursor:"pointer",zIndex:"999999",borderRadius:"10px",display:init11}}>
                 <div style={{position:"relative"}}>
                 <h1 style={{textAlign:"center",position:"absolute",top:"10px",left:"50%",transform:"translate(-50%,0)"}}>Contact Us</h1>

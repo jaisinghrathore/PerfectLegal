@@ -18,7 +18,6 @@ import store from "./redux/store"
 import{darkMode} from "./redux"
 import {connect} from "react-redux"
 import Paper from "@material-ui/core/Paper"
-import Success from "./Success"
 import ChatBot from "./ChatBot"
 
 function App(props) {
@@ -48,6 +47,7 @@ function App(props) {
     <Switch>
     
     <Route exact path="/" component={Home} />
+    <Route exact path="/perfectLegal" component={Home} />
     <Route exact path="/about" component={About} />
     <Route exact path="/services" component={Services} />
     <Route exact path="/services/details" component={MainService} />
@@ -55,7 +55,6 @@ function App(props) {
     <Route exact path="/services/:id" component={ExtraDetails} />
     <Route exact path="/contact" component={Contact} />
     <Route exact path="/paymentinfo" component={PaymentInfo} />
-    <Route exact path="/success" component={Success} />
 
     <Route exact path="*" component={Error} />
 

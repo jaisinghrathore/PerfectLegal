@@ -4,10 +4,19 @@ import Paper from "@material-ui/core/Paper"
 import Grid from "@material-ui/core/Grid"
 import Aos from "aos";
 import "aos/dist/aos.css";
-import axios from "axios"
+import axios from "axios";
+import Snackbar from '@material-ui/core/Snackbar';
+import MuiAlert from '@material-ui/lab/Alert';
 import {useHistory} from "react-router-dom";
 
+function Alert(props) {
+    return <MuiAlert elevation={6} variant="filled" {...props} />;
+  }
 
+  
+ 
+
+  
 
 
 export default function Contact() {
@@ -19,8 +28,20 @@ export default function Contact() {
   React.useEffect(()=>{
     document.body.scrollTop = 0;
     document.documentElement.scrollTop = 0;
-})
+},[])
 
+
+const [open, setOpen] = React.useState(false);
+
+    const handleClose = (event, reason) => {
+        if (reason === 'clickaway') {
+          return;
+        }
+    
+        setOpen(false);
+      };
+
+      
 
 
     useEffect(()=>{
@@ -58,6 +79,8 @@ export default function Contact() {
 
     const clicky=(event)=>{
 
+
+
      
         event.preventDefault()
             upda1(init)
@@ -72,7 +95,7 @@ export default function Contact() {
                 if(response.data.name==="ValidationError"){
         alert("Enter valid Options");
     }else{
-        history.push("./success","YOUR QUERIES HAS BEEN RECORDED")
+        setOpen(true);
     }
 })  
 
@@ -88,6 +111,17 @@ init.message=" ";
 
     return (
         <>
+
+
+        
+<Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
+        <Alert onClose={handleClose} severity="success">
+        <h5 style={{marginTop:"6px"}}>YOUR QUERIES HAS BEEN RECORDED.</h5>
+        </Alert>
+      </Snackbar>
+
+
+
         <Paper>
                    <Grid container style={{zIndex:0}}>
 

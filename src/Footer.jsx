@@ -5,12 +5,16 @@ import LocationOnIcon from '@material-ui/icons/LocationOn';
 import EmailIcon from '@material-ui/icons/Email';
 import AlarmIcon from '@material-ui/icons/Alarm';
 import {Link} from "react-router-dom";
+import Snackbar from '@material-ui/core/Snackbar';
+import MuiAlert from '@material-ui/lab/Alert';
 import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 import axios from "axios"
 import {useHistory} from "react-router-dom";
 
 
-
+function Alert(props) {
+    return <MuiAlert elevation={6} variant="filled" {...props} />;
+  }
 
 export default function Footer() {
 
@@ -20,9 +24,27 @@ export default function Footer() {
         email:"Email address "
     });
 
+
     const[subinitial,subupdated]=useState(initial);
 
         const history=useHistory();  //USEhISTORY
+
+
+        const [open, setOpen] = React.useState(false);
+
+        
+      
+        const handleClose = (event, reason) => {
+          if (reason === 'clickaway') {
+            return;
+          }
+      
+          setOpen(false);
+        };
+
+        
+
+
 
     const changeEvent=(event)=>{
         updated({...initial,[event.target.name]:event.target.value})
@@ -43,9 +65,10 @@ export default function Footer() {
                 axios.post('http://localhost:4000/app/againsignup',final).then((response)=>{
                 if(response.data.name==="MongoError" ||initial.email==""){
         alert("Enter valid Options");
-    }else{
-        history.push("./success","YOU HAVE BEEN SUCCESSFULLY REGISTERED")
-    }
+        }else{
+            setOpen(true);
+
+        }
 })  
 
 initial.email=" ";
@@ -54,6 +77,16 @@ initial.email=" ";
 
     return (
         <>
+     
+     <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
+        <Alert onClose={handleClose} severity="success">
+        <h5 style={{marginTop:"6px"}}>YOUR QUERIES HAS BEEN RECORDED.</h5>
+        </Alert>
+      </Snackbar>
+      
+
+
+
         <Grid container style={{width:"100%",backgroundColor:"rgba(1,1,1,0.8)",paddingBottom:""}}>
         <Grid xs={12} md={4} style={{border:'1px solid #555555',height:'110px',paddingTop:"44px"}}>
                 <p style={{fontSize:"1.7rem",color:'#999999',textAlign:'center'}}> <LocationOnIcon style={{fontSize:"4rem",color:"#CDBA6D"}}></LocationOnIcon> <span style={{color:'#FFFFFF'}}>Address </span>B-199 Basement Lajpat Nagar Part 1 New Delhi 110024</p>
