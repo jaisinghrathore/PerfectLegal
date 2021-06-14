@@ -3,6 +3,17 @@ const router = express.Router()
 const signUpTemplateCopy = require('../signUpBackend/SignUpModels')
 const againSignUpTemplateCopy = require('../signUpBackend/AgainSignUpModels')
 
+
+// const del= async () =>{
+//     const dell=await againSignUpTemplateCopy.deleteMany({});
+//     console.log(dell);
+// }
+
+// del()
+
+
+
+
 router.post("/signup",(request, response) => {
     const signUpUser= new signUpTemplateCopy({
         name:request.body.name,
@@ -30,6 +41,8 @@ router.get("/signupshow",async(request, response) => {
 
 
 })
+
+
 
 router.post("/againsignup",(request, response) => {
     const againSignUpUser= new againSignUpTemplateCopy({

@@ -61,7 +61,7 @@ export default function PropertyMiniDetailes() {
             <Grid item xs={12} style={{height:"505px",backgroundImage:`url("https://attorco.themestek.com/demo1/wp-content/uploads/sites/4/2019/06/slider1-02.jpg")`,backgroundSize:"100% 505px",display:"flex",justifyContent:"center",alignItems:"center"}}>
                 <div>
             <p className="top linky" style={{}}>Services Details</p>
-            <h1 className="topu">ALL ABOUT {idd.toUpperCase()} CERTIFICATE</h1>
+            <h1  style={{textAlign:"center"}}  className="topu"> ABOUT {idd.toUpperCase()} CERTIFICATE</h1>
                 </div>
             </Grid>
             <Grid style={{width: '100%',padding:'42px 20px 0 20px'}} item xs={12} container> 

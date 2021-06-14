@@ -123,7 +123,7 @@ initial.email=" ";
 
                 <div style={{width:'50%',float:"right",position:'relative'}} >
                 <ul className='listu'>
-                <li><Link className="nav-link">CONTACT<ArrowForwardIosIcon/></Link></li>
+                <li><Link className="nav-link"  to="/contact">CONTACT<ArrowForwardIosIcon/></Link></li>
                 <li><Link className="nav-link">DIRECT<ArrowForwardIosIcon/></Link></li>
                 <li><Link className="nav-link" to="paymentinfo">Payment<ArrowForwardIosIcon/></Link></li>
                 </ul>

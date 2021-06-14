@@ -18,7 +18,7 @@ export default function MainService() {
             <Grid item xs={12} style={{height:"505px",backgroundImage:`url(${Propertyi})`,backgroundSize:"100% 505px",display:"flex",justifyContent:"center",alignItems:"center"}}>
                 <div>
             <p className="top linky" style={{}}>WE FIGHT FOR JUSTICE</p>
-            <h1 className="topu">SEPCIAL  APPROACH , DEDICATED  ATTORNEYS</h1>
+            <h1 style={{textAlign:"center"}} className="topu">SEPCIAL  APPROACH , DEDICATED  ATTORNEYS</h1>
                 </div>
             </Grid>
             <Grid style={{width: '100%',  padding:'82px 50px 0 50px'}} item xs={12} container spacing={3}> 

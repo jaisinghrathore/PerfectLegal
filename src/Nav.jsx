@@ -27,13 +27,13 @@ const Nav=(props)=>{
     const[initialStyleNav,updatedStyleNav]=useState(
       {
         backgroundColor:"transparent",
-        height:"80px",
+        height:"9rem",
         zIndex:1
       }
     );
     const[initialStyleA,updatedStyleA]=useState(
       {
-        width:"120px",
+        width:"13rem",
         position:"absolute",
         top:-10
       }
@@ -96,14 +96,14 @@ const Nav=(props)=>{
         <NavLink  exact activeClassName="active"  style={initialStyle} className="nav-link" to="/services">SERVICES</NavLink>
       </li> 
       <li className="nav-item dropdown mr-5">
-      <NavLink  exact activeClassName="active" to="/contact" style={initialStyle} className="nav-link">
+      <NavLink  exact activeClassName="active" to="/contact" style={initialStyle} className="nav-link" >
       CONTACT US
       </NavLink>
     </li>
     <li className="nav-item dropdown mr-5">
-      <Link  to="/paymentinfo" className="nav-link  linky"  style={{fontSize:"1.6rem"}}>
+    <NavLink exact to="/paymentinfo" activeClassName="active"  style={initialStyle} className="nav-link" >
        PAYMENT
-      </Link>
+      </NavLink>
     </li>
   
     </ul>

@@ -49,7 +49,7 @@ export default function ExtraDetails() {
             <Grid item xs={12} style={{height:"505px",backgroundImage:`url("https://attorco.themestek.com/demo1/wp-content/uploads/sites/4/2019/06/slider1-02.jpg")`,backgroundSize:"100% 505px",display:"flex",justifyContent:"center",alignItems:"center"}}>
                 <div>
             <p className="top linky" style={{}}>Services</p>
-            <h1 className="topu">ALL ABOUT {id.toUpperCase()} CERTIFICATE</h1>
+            <h1 className="topu" style={{textAlign: "center"}}>ALL ABOUT {id.toUpperCase()} CERTIFICATE</h1>
                 </div>
             </Grid>
             <Grid style={{width: '100%',padding:'82px 50px 0 50px'}} item xs={12} container> 
