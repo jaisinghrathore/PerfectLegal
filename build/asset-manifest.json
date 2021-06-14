@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/perfectLegal/static/css/main.f20147be.chunk.css",
-    "main.js": "/perfectLegal/static/js/main.914ede39.chunk.js",
-    "main.js.map": "/perfectLegal/static/js/main.914ede39.chunk.js.map",
+    "main.css": "/perfectLegal/static/css/main.9ce62a62.chunk.css",
+    "main.js": "/perfectLegal/static/js/main.cffea10e.chunk.js",
+    "main.js.map": "/perfectLegal/static/js/main.cffea10e.chunk.js.map",
     "runtime-main.js": "/perfectLegal/static/js/runtime-main.6baf1f54.js",
     "runtime-main.js.map": "/perfectLegal/static/js/runtime-main.6baf1f54.js.map",
-    "static/css/2.ec02d681.chunk.css": "/perfectLegal/static/css/2.ec02d681.chunk.css",
+    "static/css/2.7fc9bc2b.chunk.css": "/perfectLegal/static/css/2.7fc9bc2b.chunk.css",
     "static/js/2.0b8a4476.chunk.js": "/perfectLegal/static/js/2.0b8a4476.chunk.js",
     "static/js/2.0b8a4476.chunk.js.map": "/perfectLegal/static/js/2.0b8a4476.chunk.js.map",
     "index.html": "/perfectLegal/index.html",
-    "static/css/2.ec02d681.chunk.css.map": "/perfectLegal/static/css/2.ec02d681.chunk.css.map",
-    "static/css/main.f20147be.chunk.css.map": "/perfectLegal/static/css/main.f20147be.chunk.css.map",
+    "static/css/2.7fc9bc2b.chunk.css.map": "/perfectLegal/static/css/2.7fc9bc2b.chunk.css.map",
+    "static/css/main.9ce62a62.chunk.css.map": "/perfectLegal/static/css/main.9ce62a62.chunk.css.map",
     "static/js/2.0b8a4476.chunk.js.LICENSE.txt": "/perfectLegal/static/js/2.0b8a4476.chunk.js.LICENSE.txt",
     "static/media/Affi.b345d3c7.jpg": "/perfectLegal/static/media/Affi.b345d3c7.jpg",
     "static/media/Award.0d633afa.jpg": "/perfectLegal/static/media/Award.0d633afa.jpg",
@@ -45,9 +45,9 @@
   },
   "entrypoints": [
     "static/js/runtime-main.6baf1f54.js",
-    "static/css/2.ec02d681.chunk.css",
+    "static/css/2.7fc9bc2b.chunk.css",
     "static/js/2.0b8a4476.chunk.js",
-    "static/css/main.f20147be.chunk.css",
-    "static/js/main.914ede39.chunk.js"
+    "static/css/main.9ce62a62.chunk.css",
+    "static/js/main.cffea10e.chunk.js"
   ]
 }

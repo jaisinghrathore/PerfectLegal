@@ -22,7 +22,6 @@ import ChatBot from "./ChatBot"
 
 function App(props) {
 
-
   store.subscribe(() => {
     localStorage.setItem('reduxStore' , JSON.stringify(store.getState()));
     // console.log(store.getState().login.data.token)
@@ -32,7 +31,8 @@ function App(props) {
         type:JSON.parse(localStorage.getItem("reduxStore")).mode,
       },
     });
-  
+
+
   return (  
     <>
 

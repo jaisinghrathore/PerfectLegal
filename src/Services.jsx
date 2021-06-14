@@ -53,8 +53,7 @@ useEffect(()=>{
         <Container>
        <div style={{width:'100%',height:'100%'}}  data-aos="flip-down">
             <img src={Property} width='100%' height='300px'></img>
-       <div className="risi" style={{width: '80%', height: '80px' , backgroundColor:"white",position:"relative",bottom: '40px',left:'30px',boxShadow:' 0 20px 40px rgb(0 0 0 / 6%)',padding:"12px 0 0 15px"}}>
-       <p style={{color:"#CDBA6D",fontSize:"1.6rem",marginBottom:"6px"}} className="linky"><b>Property</b></p>
+       <div className="risi" style={{width: '80%', height: '80px' , backgroundColor:"white",position:"relative",bottom: '40px',left:'30px',boxShadow:' 0 20px 40px rgb(0 0 0 / 6%)',padding:"12px 0 0 15px",display: 'flex',justifyContent:"center",alignItems:"center",borderRadius:"10px"}}>
        <Link style={{fontSize:"2.0rem"}} to="/services/details">Property Law<ArrowForwardIosIcon/></Link>
        </div>
        </div>

@@ -10,6 +10,7 @@ import MuiAlert from '@material-ui/lab/Alert';
 import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 import axios from "axios"
 import {useHistory} from "react-router-dom";
+import firebaseDb from "./Firebase"
 
 
 function Alert(props) {
@@ -21,7 +22,7 @@ export default function Footer() {
     
 
     const[initial,updated]=useState({
-        email:"Email address "
+        email:""
     });
 
 
@@ -61,17 +62,21 @@ export default function Footer() {
             }
 
                 
-            
-                axios.post('http://localhost:4000/app/againsignup',final).then((response)=>{
-                if(response.data.name==="MongoError" ||initial.email==""){
-        alert("Enter valid Options");
+        if(!initial.email){
+        alert("fill The Details");
+        }
+        else if(!/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(initial.email)){
+        alert("Enter valid Email");
         }else{
+            firebaseDb.child("perfectLegalEmails").push(final,(err)=>{
+                if(err){
+                    console.log(err);
+                }
+            });
             setOpen(true);
 
         }
-})  
-
-initial.email=" ";
+updated({["email"]:""})
     }
 
 
@@ -103,7 +108,7 @@ initial.email=" ";
                         <p className="logoName" style={{fontSize:"30px",color:"#CDBA6D",textShadow:"1px 1px 6px #CDBA6D",textAlign:"center"}}>Perfect Legal</p>
 
                         <form style={{marginLeft:"60px"}} onSubmit={submitEvent}>
-                        <input  onChange={changeEvent} type="text" value={initial.email} style={{width:"240px",height:"55px",marginTop:"10px"}}name="email"/>
+                        <input  onChange={changeEvent} type="text" placeholder="Email address" value={initial.email} style={{width:"240px",height:"55px",marginTop:"10px"}} name="email"/>
                         <button type="submit" className="btnu" style={{width:"60px",height:"54px",border:"1px solid transparent",backgroundColor:"#CDBA6D",position:"relative",right:"60px"}} ><EmailIcon style={{color:'#fff',fontSize:'20px'}}></EmailIcon></button>
                         </form>
 

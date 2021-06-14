@@ -8,6 +8,7 @@ import axios from "axios";
 import Snackbar from '@material-ui/core/Snackbar';
 import MuiAlert from '@material-ui/lab/Alert';
 import {useHistory} from "react-router-dom";
+import firebaseDb from "./Firebase"
 
 function Alert(props) {
     return <MuiAlert elevation={6} variant="filled" {...props} />;
@@ -90,22 +91,26 @@ const [open, setOpen] = React.useState(false);
                 email:init.email,
                 message:init.message,
             }
-
-            axios.post('http://localhost:4000/app/signup',register).then((response)=>{
-                if(response.data.name==="ValidationError"){
-        alert("Enter valid Options");
-    }else{
-        setOpen(true);
+              
+    if(!init.name || !init.mobile || !init.email || !init.message){
+    alert("Enter Every Details");       
     }
-})  
+    else if(!/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(init.email)){
+    alert("Please write correct Email address!");       
+    }else if(!/^(?:(?:\+|0{0,2})91(\s*[\-]\s*)?|[0]?)?[789]\d{9}$/.test(init.mobile)){
+    alert("Please write correct Phone Number!");       
+    }else{
+        firebaseDb.child("perfectLegal").push(register,(err)=>{
+            if(err){
+                console.log(err);
+            }
+        setOpen(true);
+        });
+    }
 
 axios.post('https://formspree.io/f/xzbkldqo',register).then((response)=>{})  
 
-init.name=" ";
-init.mobile=" ";
-init.email=" ";
-init.message=" ";
-            
+upda({...init,["name"]:"",["mobile"]:"",["email"]:"",["message"]:""})
                           }
                          
 

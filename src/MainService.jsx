@@ -27,7 +27,6 @@ export default function MainService() {
             <PropertyLawCard
             key={val.id}
             img={val.img}
-            info={val.info}
             details={val.details}
             small={val.small}
         />

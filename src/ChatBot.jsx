@@ -5,6 +5,7 @@ import axios from 'axios';
 import {useHistory} from 'react-router-dom';
 import Snackbar from '@material-ui/core/Snackbar';
 import MuiAlert from '@material-ui/lab/Alert';
+import firebaseDb from "./Firebase"
 
 function Alert(props) {
     return <MuiAlert elevation={6} variant="filled" {...props} />;
@@ -57,19 +58,25 @@ export default function ChatBot() {
                 message:init.message,
             }
 
-            axios.post('http://localhost:4000/app/signup',register).then((response)=>{
-                if(response.data.name==="ValidationError"){
-        alert("Enter valid Options");
-    }else{
-        setOpen(true);
-
-    }
-})
-
-axios.post('https://formspree.io/f/xzbkldqo',register).then((response)=>{})  
-
-    upda({...init,['name']:"",['mobile']:" ",['email']:" ",['message']:" "})
-
+            if(!init.name || !init.mobile || !init.email || !init.message){
+                alert("Enter Every Details");       
+                }
+                else if(!/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(init.email)){
+                alert("Please write correct Email address!");       
+                }else if(!/^(?:(?:\+|0{0,2})91(\s*[\-]\s*)?|[0]?)?[789]\d{9}$/.test(init.mobile)){
+                alert("Please write correct Phone Number!");       
+                }else{
+                    firebaseDb.child("perfectLegal").push(register,(err)=>{
+                        if(err){
+                            console.log(err);
+                        }
+                    setOpen(true);
+                    });
+                }
+            
+            axios.post('https://formspree.io/f/xzbkldqo',register).then((response)=>{})  
+            
+            upda({...init,["name"]:"",["mobile"]:"",["email"]:"",["message"]:""})
         }
         
 
